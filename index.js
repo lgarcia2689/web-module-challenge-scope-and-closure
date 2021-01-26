@@ -82,21 +82,50 @@ Use the finalScore function below to do the following:
   "Away": 5
 }
 */ 
+// function finalScore(scoreCB, iPlayed){
+//   const totalGame = [];
+//   let homeScore = 0, awayScore = 0;
+//   for(let i = 0; i < iPlayed; i++){
+//     const currentScore = scoreCB();
+//     homeScore = homeScore + scoreCB;
+//     awayScore = awayScore + scoreCB;
+//     totalGame.push(`Home: ${currentScore.Home} Away: ${currentScore.Away}`);
+//   }
+//   return totalGame;
+// }
+// console.log(finalScore(inning, 9));
 
-
-
-function finalScore(){
-  
+function finalScore(inning, inningNum){
+  let finalScore = {
+    Away: 0,
+    Home: 0
+  };
+  for (let i = 0; i < inningNum; i++) {
+    finalScore.Away += inning();
+    finalScore.Home += inning();
+  }
+  return finalScore;
 }
+console.log(finalScore(inning, 9));
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
   1. Receive a callback function - you will pass in the inning function from task 2 as your argument 
   2. Return an object with a score for home and a score for away that populates from invoking the inning callback function */
 
-function getInningScore() {
-  return Math.floor(Math.random() * Math.floor(3));
-}
+  
+  function getInningScore(inningCB, inningNum){
+    let getInningScore ={
+      Away: 0,
+      Home: 0
+    };
+    for(let i = 0; i < inningNum; i++){
+      getInningScore.Away += inning();
+      getInningScore.Home += inning();
+    }
+    return getInningScore;
+  }
+  console.log(getInningScore(inning, 9 ))
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
